@@ -2,7 +2,7 @@
  *    author: pankaj_m05          
 **/
 #include<bits/stdc++.h>
-#define fast ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define fast ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr)
 #define f_in(file) freopen(file, "r", stdin)
 #define f_out(file) freopen(file, "w", stdout)
 #define sz(a) int((a).size())
