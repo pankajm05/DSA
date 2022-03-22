@@ -1,26 +1,26 @@
 /** 
- *    author:  pankaj_m05
- *    created: 23.11.2020 19:39:03
+ *    Returns the minimum number of coins that you need to make up an amount, inf otherwise (typically amount + 1)
+ *    Space Complexity: O(n)
+ *    Time Complexity: (2^n)
 **/ 
 #include<bits/stdc++.h>
 
 using namespace std;
 
-constexpr int inf = 1e9; 
-vector<int> coins;
+int inf = (int) 1e9; 
 
-int solve(int n) {
-	if (n < 0) {
-		return inf;
-	}
-	if (n == 0) {
-		return 0;
-	}
-	int ans = inf;
-	for (int c : coins) {
-		ans = min(ans, solve(n - c) + 1);
-	}
-	return ans;
+int solve(vector<int> &coins, int n) {
+  if (n < 0) {
+    return inf;
+  }
+  if (n == 0) {
+    return 0;
+  }
+  int ans = inf;
+  for (int c : coins) {
+    ans = min(ans, solve(coins, n - c) + 1);
+  }
+  return ans;
 }
 
 int main(void) {
@@ -28,10 +28,11 @@ int main(void) {
   cin.tie(nullptr);
   int n, t;
   cin >> n >> t;
-  coins.resize(n);
+  inf = t + 1;
+  vector<int> coins(n);
   for (int i = 0; i < n; ++i) {
-  	cin >> coins[i];
+    cin >> coins[i];
   } 
-  cout << solve(t);
+  cout << solve(coins, t);
   return 0;
 }
